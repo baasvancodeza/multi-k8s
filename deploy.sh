@@ -9,7 +9,7 @@ docker push baasvancodeza/multi-server:$SHA
 docker push baasvancodeza/multi-worker:latest
 docker push baasvancodeza/multi-worker:$SHA
 # deploy k8s
-kubectl -f k8s
+kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=baasvancodeza/multi-server:$SHA
 kubectl set image deployments/client-deployment client=baasvancodeza/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=baasvancodeza/multi-wroker:$SHA
